@@ -1,0 +1,176 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold')
+$default-bg-color: #222222
+$default-bg-no-context: #333333
+$quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%)
+
+
+.quest-wrapper
+  height: 150px
+  width: 510px
+  background: $quest-bg-default
+  border: 1px solid #FFFFFF0D
+  border-radius: 3px
+  color: white
+  position: relative
+
+  .quest-background-icon
+    position: absolute
+    right: -1px
+    top: -1px
+    pointer-events: none
+
+  .quest-card-container
+    height: 100%
+    width: 100%
+    padding: 15px
+    display: flex
+    flex-direction: column
+
+    .quest-card-header
+      height: 20px
+      width: 100%
+      display: flex
+      justify-content: space-between
+      font-family: 'Gilroy-Light', sans-serif
+      font-weight: 400
+
+      & h3
+        font-size: 16px
+
+      & h4
+        font-size: 14px
+
+        & span
+          color: #FFFFFF59
+
+    .quest-card-main
+      margin-top: 4px
+      width: 100%
+      height: 100%
+
+      & p
+        font-size: 14px
+        color: #FFFFFF8C
+        font-family: 'Gilroy-Regular', sans-serif
+
+    .quest-card-footer
+      //background-color: blue
+      height: 42px
+      display: flex
+      align-items: center
+      justify-content: space-between
+      gap: 9px
+
+      .btns-wrapper
+        width: 165px
+        height: 40px
+
+        .btn
+          width: 100%
+          height: 100%
+          border-radius: 3px
+          border: none
+          background-color: #454545
+          display: flex
+          justify-content: center
+          align-items: center
+
+          color: white
+          font-family: 'Gilroy-Regular', sans-serif
+
+        .quest-available
+          color: yellow
+          background: #635f35
+          border: 1px solid #b4ac3c
+
+        .quest-done
+          color: #5dfd43
+          background: #5DFF4340
+
+        .quest-disabled
+          color: white
+          background: #636364
+          border: 1px solid #999999
+
+
+
+    .quest-rewards-wrapper
+      display: flex
+      gap: 9px
+      height: 100%
+
+      // EXP & MONEY
+      .first-rewards-wrapper
+        width: 100%
+        height: 100%
+
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        align-items: flex-end
+        gap: 3px
+        font-family: 'Gilroy-Regular', sans-serif
+        font-size: 13px
+
+        .first-rewards-EXP
+          height: 19px
+          background-color: #11E9FF26
+          display: flex
+          align-items: center
+          justify-content: center
+          border-radius: 3px
+          padding: 0 11px 0 11px
+
+        .first-rewards-MON
+          height: 19px
+          width: 100%
+          background: #97D90B26
+          display: flex
+          align-items: center
+          justify-content: center
+          border-radius: 3px
+          padding: 0 11px 0 11px
+
+
+      // ITEMS
+      .second-rewards-wrapper
+        width: 100%
+        height: 100%
+
+        display: flex
+        flex-flow: row nowrap
+        gap: 9px
+
+        .second-rewards-item
+          background: radial-gradient(100% 100% at 50% 50%, rgba(221, 221, 221, 0.5) 0%, rgba(221, 221, 221, 0.250496) 49.9%, rgba(221, 221, 221, 0) 100%)
+          border: 1px solid #DDDDDD40
+          border-radius: 3px
+
+          width: 42px
+          height: 42px
+
+          display: flex
+          justify-content: center
+          align-items: center
+
+          overflow: hidden
+
+        .blue
+          border: 1px solid #11A9FF40
+          background: radial-gradient(100% 100% at 50% 50%, rgba(17, 169, 255, 0.5) 0%, rgba(17, 169, 255, 0.250496) 49.9%, rgba(17, 169, 255, 0) 100%)
+
+        .yellow
+          background: radial-gradient(100% 100% at 50% 50%, rgba(246, 239, 104, 0.5) 0%, rgba(246, 244, 104, 0.25) 49.9%, rgba(175, 104, 246, 0) 100%)
+          border: 1px solid rgba(237, 246, 104, 0.25)
+
+        .purple
+          background: radial-gradient(100% 100% at 50% 50%, rgba(175, 104, 246, 0.5) 0%, rgba(175, 104, 246, 0.250496) 49.9%, rgba(175, 104, 246, 0) 100%)
+          border: 1px solid #AF68F640
+
+        .red
+          background: radial-gradient(100% 100% at 50% 50%, rgba(246, 104, 104, 0.5) 0%, rgba(246, 104, 104, 0.25) 49.9%, rgba(246, 104, 104, 0) 100%)
+          border: 1px solid rgba(246, 104, 104, 0.25)
+
+        .rewards-item-picture
+          width: 25px
+          height: 25px

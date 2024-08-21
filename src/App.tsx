@@ -5,7 +5,7 @@ import everyDayQuestOptionON from './assets/everyDayQuestOptionON.svg'
 import everyDayQuestOptionOff from './assets/everyDayQuestOptionOff.svg'
 import startingQuestOptionON from './assets/startingQuestOptionON.svg'
 import startingQuestOptionOFF from './assets/startingQuestOptionOFF.svg'
-import questBgCup from './assets/quest-bg-cup.svg'
+import QuestCard from "./components/QuestCard.tsx";
 
 
 function App() {
@@ -37,25 +37,75 @@ function App() {
                                 />
 
                             </header>
+
                             <div className="quest-desk">
 
-                                <div className="quest-wrapper">
-                                    <div className="quest-card-container">
-                                        <div className="quest-card-header">
-                                            <h3>Quest Name</h3>
-                                            <h3>EXP/MAX_EXP</h3>
-                                        </div>
-                                        <div className="quest-card-main">
-                                            <h5>QUEST DESCRIPTION</h5>
-                                        </div>
-                                        <div className="quest-card-footer">
-                                            btn, EXP+MONEY, Items
-                                        </div>
-                                    </div>
-                                    <img src={questBgCup} alt="QuestCupBGicon" className="quest-background-icon" />
-                                </div>
+                                <QuestCard
+                                    questName="Назва Квесту"
+                                    questDescription = "Розколоти 3 палети патиків на бригаді"
+                                    questStatus = "current"
+                                    questImagePath = ""
+                                    questProgress = {{current: 0, total: 3000 }}
+                                    questRewards = {{
+                                        exp: 1250,
+                                        money: 5000000,
+                                        items: {
+                                            imagePath: 'string',
+                                            rarity: 'blue'
+                                        }
+                                    }}
+                                />
+
+                                <QuestCard
+                                    questName="Назва Квесту"
+                                    questDescription = "Розколоти 3 палети патиків на бригаді"
+                                    questStatus = "available"
+                                    questImagePath = ""
+                                    questProgress = {{current: 0, total: 3000 }}
+                                    questRewards = {{
+                                        exp: 1250,
+                                        money: 5000000,
+                                        items: {
+                                            imagePath: 'string',
+                                            rarity: 'purple'
+                                        }
+                                    }}
+                                />
+
+                                <QuestCard
+                                    questName="Назва Квесту"
+                                    questDescription = "Розколоти 3 палети патиків на бригаді"
+                                    questStatus = "done"
+                                    questImagePath = ""
+                                    questProgress = {{current: 0, total: 3000 }}
+                                    questRewards = {{
+                                        exp: 1250,
+                                        money: 5000000,
+                                        items: {
+                                            imagePath: 'string',
+                                            rarity: 'red'
+                                        }
+                                    }}
+                                />
+
+                                <QuestCard
+                                    questName="Назва Квесту"
+                                    questDescription = "Розколоти 3 палети патиків на бригаді"
+                                    questStatus = "disabled"
+                                    questImagePath = ""
+                                    questProgress = {{current: 0, total: 3000 }}
+                                    questRewards = {{
+                                        exp: 1250,
+                                        money: 5000000,
+                                        items: {
+                                            imagePath: 'string',
+                                            rarity: 'yellow'
+                                        }
+                                    }}
+                                />
 
                             </div>
+
                         </main>
                         :
                         <main className="quest-no-quest">NO QUESTS</main>
