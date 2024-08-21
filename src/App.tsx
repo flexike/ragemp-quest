@@ -1,108 +1,111 @@
-import { useState } from 'react'
+import {Key, useEffect, useState} from 'react'
 import './App.sass'
 import QuestCardOption from "./components/QuestCardOption.tsx";
+import QuestCard from "./components/QuestCard.tsx";
 import everyDayQuestOptionON from './assets/everyDayQuestOptionON.svg'
 import everyDayQuestOptionOff from './assets/everyDayQuestOptionOff.svg'
 import startingQuestOptionON from './assets/startingQuestOptionON.svg'
 import startingQuestOptionOFF from './assets/startingQuestOptionOFF.svg'
-import QuestCard from "./components/QuestCard.tsx";
+import DataFromServ from './data.json'
+import {createLogger} from "vite";
+
+
+interface DataInterf {
+    name: string;
+    quests: QuestInterf[];
+}
+
+type QuestInterf = {
+    name: string;
+    description: string;
+    status: 'available' | 'done' | 'current' | 'disabled'
+    imagePath: string;
+    progress: {
+        current: number;
+        total: number;
+    };
+    rewards: Rewards[]
+}[]
+
+type Rewards = {
+    exp?: number
+    money?: number
+    items: {
+        imagePath: string
+        rarity: 'blue' | 'yellow' | 'purple' | 'red'
+    }[]
+}
 
 
 function App() {
-    const [data, setData] = useState<any>([])
 
-  return (
-    <section className="quest-section">
-        <div className="quest-container">
-            <header className="quest-header">Menu None</header>
-            <div className="quest-block">
-                <aside className="quest-block-aside">Aside None</aside>
-                {
-                    data ?
-                        <main className="quest-block-main">
-                            <header className="quest-main-header">
+    const [data, setData] = useState<DataInterf | null>(null)
+    const bool: boolean = true
 
-                                <QuestCardOption
-                                    questOptionName = "Початкові"
-                                    questOptionSVGoff = {`${startingQuestOptionOFF}`}
-                                    questOptionSVGon = {`${startingQuestOptionON}`}
-                                    questOptionQuests = {{}}
-                                />
+    useEffect(() => {
+        fetchData()
+    }, []);
 
-                                <QuestCardOption
-                                    questOptionName = "Щоденні"
-                                    questOptionSVGoff = {`${everyDayQuestOptionOff}`}
-                                    questOptionSVGon = {`${everyDayQuestOptionON}`}
-                                    questOptionQuests = {{}}
-                                />
+    function fetchData() {
+        setData(DataFromServ)
+        // console.log('Data is received', DataFromServ)
+    }
+
+
+    return (
+        <section className="quest-section">
+            <div className="quest-container">
+                <header className="quest-header">Menu None</header>
+                <div className="quest-block">
+                    <aside className="quest-block-aside">Aside None</aside>
+                    {
+                        bool ?
+                            <main className="quest-block-main">
+                                <header className="quest-main-header">
+
+                                {
+                                    data ?
+                                        data.map((questOptionFrData: { name: string; }, index: Key | null | undefined) => {
+                                            return(
+                                                <QuestCardOption
+                                                    key = {index}
+                                                    questOptionName = {questOptionFrData.name}
+                                                    questOptionSVGoff = {`${startingQuestOptionOFF}`}
+                                                    questOptionSVGon = {`${startingQuestOptionON}`}
+                                                />
+                                            )
+                                        })
+                                    :
+                                    null
+                                }
+
+
 
                             </header>
 
                             <div className="quest-desk">
 
-                                <QuestCard
-                                    questName="Назва Квесту"
-                                    questDescription = "Розколоти 3 палети патиків на бригаді"
-                                    questStatus = "current"
-                                    questImagePath = ""
-                                    questProgress = {{current: 0, total: 3000 }}
-                                    questRewards = {{
-                                        exp: 1250,
-                                        money: 5000000,
-                                        items: {
-                                            imagePath: 'string',
-                                            rarity: 'blue'
-                                        }
-                                    }}
-                                />
-
-                                <QuestCard
-                                    questName="Назва Квесту"
-                                    questDescription = "Розколоти 3 палети патиків на бригаді"
-                                    questStatus = "available"
-                                    questImagePath = ""
-                                    questProgress = {{current: 0, total: 3000 }}
-                                    questRewards = {{
-                                        exp: 1250,
-                                        money: 5000000,
-                                        items: {
-                                            imagePath: 'string',
-                                            rarity: 'purple'
-                                        }
-                                    }}
-                                />
-
-                                <QuestCard
-                                    questName="Назва Квесту"
-                                    questDescription = "Розколоти 3 палети патиків на бригаді"
-                                    questStatus = "done"
-                                    questImagePath = ""
-                                    questProgress = {{current: 0, total: 3000 }}
-                                    questRewards = {{
-                                        exp: 1250,
-                                        money: 5000000,
-                                        items: {
-                                            imagePath: 'string',
-                                            rarity: 'red'
-                                        }
-                                    }}
-                                />
-
-                                <QuestCard
-                                    questName="Назва Квесту"
-                                    questDescription = "Розколоти 3 палети патиків на бригаді"
-                                    questStatus = "disabled"
-                                    questImagePath = ""
-                                    questProgress = {{current: 0, total: 3000 }}
-                                    questRewards = {{
-                                        exp: 1250,
-                                        money: 5000000,
-                                        items: {
-                                            imagePath: 'string',
-                                            rarity: 'yellow'
-                                        }
-                                    }}
-                                />
+                                {
+                                    data ?
+                                        data.map((questsCardFrData: any) => {
+                                            // console.log('QUESTcardDATA', questsCardFrData.quests)
+                                            questsCardFrData.quests.forEach((quest: any) => {
+                                                // console.log("QUEST (FOREACH):", quest.rewards, quest.progress)
+                                                return (
+                                                    <QuestCard
+                                                        questName = {quest.name}
+                                                        questDescription = {quest.description}
+                                                        questStatus = {quest.status}
+                                                        questImagePath = {quest.imagePath}
+                                                        questProgress = {quest.progress}
+                                                        questRewards = {quest.rewards}
+                                                    />
+                                                )
+                                            })
+                                        })
+                                        :
+                                        null
+                                }
 
                             </div>
 

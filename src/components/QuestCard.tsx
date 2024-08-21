@@ -11,26 +11,21 @@ interface QuestCardProps {
         current: number
         total: number
     }
-    questRewards: {
-        exp?: number
-        money?: number
-        items: {
-            imagePath: string
-            rarity: 'blue' | 'yellow' | 'purple' | 'red'
-        }
-    }
+    questRewards: Rewards[]
 }
 
-// type Rewards = {
-//     exp?: number
-//     money?: number
-//     items: {
-//         imagePath: string
-//         rarity: 'blue' | 'yellow' | 'purple' | 'red'
-//     }[]
-// }
+type Rewards = {
+    exp?: number
+    money?: number
+    items: {
+        imagePath: string
+        rarity: 'blue' | 'yellow' | 'purple' | 'red'
+    }[]
+}
 
 function QuestCard({questName, questDescription, questStatus, questImagePath, questProgress, questRewards}: QuestCardProps) {
+
+    console.log(`Quest Rewards: ${questRewards}`)
 
 
     return (
@@ -48,12 +43,12 @@ function QuestCard({questName, questDescription, questStatus, questImagePath, qu
                     {
                         questStatus === "available" ?
                             <div className="btns-wrapper">
-                                <button className={`btn ${'quest-available'}`}>Розпочати</button>
+                                <button className={`btn quest-available`}>Розпочати</button>
                             </div>
 
                         : questStatus === "done" ?
                              <div className="btns-wrapper">
-                                <button className={`btn ${'quest-done'}`}>Виконано</button>
+                                <button className={`btn quest-done`}>Виконано</button>
                              </div>
 
                         : questStatus === "current" ?
@@ -63,7 +58,7 @@ function QuestCard({questName, questDescription, questStatus, questImagePath, qu
 
                         : questStatus === "disabled" ?
                              <div className="btns-wrapper">
-                                  <button className={`btn ${'quest-disabled'}`}>Недоступно</button>
+                                  <button className={`btn quest-disabled`}>Недоступно</button>
                              </div>
                              : null
                     }
@@ -75,29 +70,36 @@ function QuestCard({questName, questDescription, questStatus, questImagePath, qu
                                 null
                                 :
                             <>
-                                <div className="first-rewards-wrapper">
-                                    <div className="first-rewards-EXP">+{questRewards.exp} EXP</div>
-                                    <div className="first-rewards-MON">${questRewards.money}</div>
-                                </div>
+                            {
+                                questRewards ?
+                                    questRewards.map((questRew) => {
+                                        return (
+                                            <div className="first-rewards-wrapper">
+                                                <div className="first-rewards-EXP">+{questRew.exp} EXP</div>
+                                                <div className="first-rewards-MON">${questRew.money}</div>
+                                            </div>
+                                        )
+                                    })
+                                    :
+                                    null
+                            }
 
                                 <div className="second-rewards-wrapper">
-
                                     {
-                                        questRewards.items ?
+                                        questRewards ?
 
-                                            // questRewards.map((questRew) => {
-                                            //     return (
-                                            //         <div className={`second-rewards-item ${questRew.items.rarity}`}>
-                                            //             <img src={bagIcon} alt="itemIcon"
-                                            //                  className="rewards-item-picture"/>
-                                            //             </div>
-                                            //     )
-                                            // })
+                                            questRewards.map((questRew) => {
+                                                return (
+                                                    <div className={`second-rewards-item ${questRew.items.rarity}`}>
+                                                        <img src={bagIcon} alt="itemIcon"
+                                                             className="rewards-item-picture"/>
+                                                        </div>
+                                                )
+                                            })
 
-                                            <div className={`second-rewards-item ${questRewards.items.rarity}`}>
-                                                <img src={bagIcon} alt="itemIcon" className="rewards-item-picture"/>
-                                            </div>
-
+                                            // <div className={`second-rewards-item `}>
+                                            //     <img src={bagIcon} alt="itemIcon" className="rewards-item-picture"/>
+                                            // </div>
                                             : null
                                     }
 
@@ -115,13 +117,12 @@ function QuestCard({questName, questDescription, questStatus, questImagePath, qu
                                 </div>
                             </>
                         }
+                        </div>
                     </div>
                 </div>
-                            </div>
-                            <img src={questBgCup} alt="QuestCupBGicon" className="quest-background-icon"/>
-                </div>
-                )
-                ;
-                }
+            <img src={questBgCup} alt="QuestCupBGicon" className="quest-background-icon"/>
+        </div>
+    );
+}
 
                 export default QuestCard;
