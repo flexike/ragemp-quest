@@ -87,18 +87,19 @@ function App() {
 
                                 {
                                     data ?
-                                        data.map((questsCardFrData: any) => {
+                                        data.map((questsCardFrData: DataInterf) => {
                                             // console.log('QUESTcardDATA', questsCardFrData.quests)
-                                            questsCardFrData.quests.forEach((quest: any) => {
-                                                // console.log("QUEST (FOREACH):", quest.rewards, quest.progress)
-                                                return (
+                                            questsCardFrData.quests.forEach((quest: any, index: Key | null | undefined) => {
+                                                // console.log("QUEST (FOREACH):", quest)
+                                                return(
                                                     <QuestCard
-                                                        questName = {quest.name}
-                                                        questDescription = {quest.description}
-                                                        questStatus = {quest.status}
-                                                        questImagePath = {quest.imagePath}
-                                                        questProgress = {quest.progress}
-                                                        questRewards = {quest.rewards}
+                                                        key = {index}
+                                                        name = {quest.name}
+                                                        description = {quest.description}
+                                                        status = {quest.status}
+                                                        imagePath = {quest.imagePath}
+                                                        progress = {quest.progress}
+                                                        rewards = {quest.rewards}
                                                     />
                                                 )
                                             })

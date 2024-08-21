@@ -3,15 +3,15 @@ import bagIcon from "../assets/bagIcon.png";
 import questBgCup from "../assets/quest-bg-cup.svg";
 
 interface QuestCardProps {
-    questName: string
-    questDescription: string
-    questStatus: 'available' | 'done' | 'current' | 'disabled'
-    questImagePath: string
-    questProgress: {
-        current: number
-        total: number
-    }
-    questRewards: Rewards[]
+    name: string;
+    description: string;
+    status: 'available' | 'done' | 'current' | 'disabled'
+    imagePath: string;
+    progress: {
+        current: number;
+        total: number;
+    };
+    rewards: Rewards[]
 }
 
 type Rewards = {
@@ -23,40 +23,40 @@ type Rewards = {
     }[]
 }
 
-function QuestCard({questName, questDescription, questStatus, questImagePath, questProgress, questRewards}: QuestCardProps) {
+function QuestCard({name, description, status, imagePath, progress, rewards}: QuestCardProps) {
 
-    console.log(`Quest Rewards: ${questRewards}`)
+    console.log(`Quest Rewards: ${name}`)
 
 
     return (
         <div className="quest-wrapper">
             <div className="quest-card-container">
                 <div className="quest-card-header">
-                    <h3>{questName}</h3>
-                    <h4>{questProgress.current}<span>/{questProgress.total}</span></h4>
+                    <h3>{name}</h3>
+                    <h4>{progress.current}<span>/{progress.total}</span></h4>
                 </div>
                 <div className="quest-card-main">
-                    <p>{questDescription}</p>
+                    <p>{description}</p>
                 </div>
                 <div className="quest-card-footer">
 
                     {
-                        questStatus === "available" ?
+                        status === "available" ?
                             <div className="btns-wrapper">
                                 <button className={`btn quest-available`}>Розпочати</button>
                             </div>
 
-                        : questStatus === "done" ?
+                        : status === "done" ?
                              <div className="btns-wrapper">
                                 <button className={`btn quest-done`}>Виконано</button>
                              </div>
 
-                        : questStatus === "current" ?
+                        : status === "current" ?
                              <div className="btns-wrapper">
                                  <button className={`btn`}>В процесі</button>
                              </div>
 
-                        : questStatus === "disabled" ?
+                        : status === "disabled" ?
                              <div className="btns-wrapper">
                                   <button className={`btn quest-disabled`}>Недоступно</button>
                              </div>
@@ -66,13 +66,13 @@ function QuestCard({questName, questDescription, questStatus, questImagePath, qu
                     <div className="quest-rewards-wrapper">
 
                         {
-                            questStatus === "disabled" ?
+                            status === "disabled" ?
                                 null
                                 :
                             <>
                             {
-                                questRewards ?
-                                    questRewards.map((questRew) => {
+                                rewards ?
+                                    rewards.map((questRew) => {
                                         return (
                                             <div className="first-rewards-wrapper">
                                                 <div className="first-rewards-EXP">+{questRew.exp} EXP</div>
@@ -86,11 +86,11 @@ function QuestCard({questName, questDescription, questStatus, questImagePath, qu
 
                                 <div className="second-rewards-wrapper">
                                     {
-                                        questRewards ?
+                                        rewards ?
 
-                                            questRewards.map((questRew) => {
+                                            rewards.map((questRew) => {
                                                 return (
-                                                    <div className={`second-rewards-item ${questRew.items.rarity}`}>
+                                                    <div className={`second-rewards-item ${questRew.items.map((c) => {return c.rarity})}`}>
                                                         <img src={bagIcon} alt="itemIcon"
                                                              className="rewards-item-picture"/>
                                                         </div>

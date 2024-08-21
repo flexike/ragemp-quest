@@ -129,7 +129,7 @@
       {
         "name": "The Lost Artifact",
         "description": "Find the ancient artifact hidden in the old temple.",
-        "status": "current",
+        "status": "disable",
         "imagePath": "",
         "progress": {
           "current": 3,
@@ -167,7 +167,7 @@
       },{
         "name": "The Lost Artifact",
         "description": "Find the ancient artifact hidden in the old temple.",
-        "status": "current",
+        "status": "done",
         "imagePath": "",
         "progress": {
           "current": 3,
