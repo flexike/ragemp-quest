@@ -1,121 +1,99 @@
-import {Key, useEffect, useState} from 'react'
-import './App.sass'
-import QuestCardOption from "./components/QuestCardOption.tsx";
-import QuestCard from "./components/QuestCard.tsx";
-import everyDayQuestOptionON from './assets/everyDayQuestOptionON.svg'
-import everyDayQuestOptionOff from './assets/everyDayQuestOptionOff.svg'
-import startingQuestOptionON from './assets/startingQuestOptionON.svg'
-import startingQuestOptionOFF from './assets/startingQuestOptionOFF.svg'
-import DataFromServ from './data.json'
-import {createLogger} from "vite";
+import { useEffect, useState } from "react"
+import "./App.sass"
+import QuestCardOption from "./components/QuestCardOption.tsx"
+import QuestCard from "./components/QuestCard.tsx"
 
+import everyDayQuestOptionON from "./assets/everyDayQuestOptionON.svg"
+import everyDayQuestOptionOff from "./assets/everyDayQuestOptionOff.svg"
+import startingQuestOptionON from "./assets/startingQuestOptionON.svg"
+import startingQuestOptionOFF from "./assets/startingQuestOptionOFF.svg"
+import DataFromServ from "./data.json"
 
 interface DataInterf {
-    name: string;
-    quests: QuestInterf[];
+  name: string
+  quests: QuestInterf[]
 }
 
 type QuestInterf = {
-    name: string;
-    description: string;
-    status: 'available' | 'done' | 'current' | 'disabled'
-    imagePath: string;
-    progress: {
-        current: number;
-        total: number;
-    };
-    rewards: Rewards[]
-}[]
-
-type Rewards = {
-    exp?: number
-    money?: number
-    items: {
-        imagePath: string
-        rarity: 'blue' | 'yellow' | 'purple' | 'red'
-    }[]
+  name: string
+  description: string
+  status: "available" | "done" | "current" | "disabled"
+  imagePath: string
+  progress: {
+    current: number
+    total: number
+  }
+  rewards: Rewards
 }
 
+type Rewards = {
+  exp?: number
+  money?: number
+  items: {
+    imagePath: string
+    rarity: "blue" | "yellow" | "purple" | "red"
+  }[]
+}
 
 function App() {
+  const [data, setData] = useState<DataInterf[] | null>(null)
+  const bool: boolean = true
 
-    const [data, setData] = useState<DataInterf | null>(null)
-    const bool: boolean = true
+  useEffect(() => {
+    fetchData()
+  }, [])
 
-    useEffect(() => {
-        fetchData()
-    }, []);
+  function fetchData() {
+    setData(DataFromServ as unknown as DataInterf[])
+    // console.log('Data is received', DataFromServ)
+  }
 
-    function fetchData() {
-        setData(DataFromServ)
-        // console.log('Data is received', DataFromServ)
-    }
+  return (
+    <section className="quest-section">
+      <div className="quest-container">
+        <header className="quest-header">Menu None</header>
+        <div className="quest-block">
+          <aside className="quest-block-aside">Aside None</aside>
+          {bool ? (
+            <main className="quest-block-main">
+              <header className="quest-main-header">
+                {data
+                  ? data.map((questOptionFrData, index) => {
+                      return (
+                        <QuestCardOption
+                          key={index}
+                          questOptionName={questOptionFrData.name}
+                          questOptionSVGoff={`${startingQuestOptionOFF}`}
+                          questOptionSVGon={`${startingQuestOptionON}`}
+                        />
+                      )
+                    })
+                  : null}
+              </header>
 
-
-    return (
-        <section className="quest-section">
-            <div className="quest-container">
-                <header className="quest-header">Menu None</header>
-                <div className="quest-block">
-                    <aside className="quest-block-aside">Aside None</aside>
-                    {
-                        bool ?
-                            <main className="quest-block-main">
-                                <header className="quest-main-header">
-
-                                {
-                                    data ?
-                                        data.map((questOptionFrData: { name: string; }, index: Key | null | undefined) => {
-                                            return(
-                                                <QuestCardOption
-                                                    key = {index}
-                                                    questOptionName = {questOptionFrData.name}
-                                                    questOptionSVGoff = {`${startingQuestOptionOFF}`}
-                                                    questOptionSVGon = {`${startingQuestOptionON}`}
-                                                />
-                                            )
-                                        })
-                                    :
-                                    null
-                                }
-
-
-
-                            </header>
-
-                            <div className="quest-desk">
-
-                                {
-                                    data ?
-                                        data.map((questsCardFrData: DataInterf) => {
-                                            // console.log('QUESTcardDATA', questsCardFrData.quests)
-                                            questsCardFrData.quests.forEach((quest: any, index: Key | null | undefined) => {
-                                                // console.log("QUEST (FOREACH):", quest)
-                                                return(
-                                                    <QuestCard
-                                                        key = {index}
-                                                        name = {quest.name}
-                                                        description = {quest.description}
-                                                        status = {quest.status}
-                                                        imagePath = {quest.imagePath}
-                                                        progress = {quest.progress}
-                                                        rewards = {quest.rewards}
-                                                    />
-                                                )
-                                            })
-                                        })
-                                        :
-                                        null
-                                }
-
-                            </div>
-
-                        </main>
-                        :
-                        <main className="quest-no-quest">NO QUESTS</main>
-                }
-            </div>
+              <div className="quest-desk">
+                {data
+                  ? data.map((questsCardFrData) =>
+                      questsCardFrData.quests.map((quest, index) => (
+                        <QuestCard
+                          key={index}
+                          name={quest.name}
+                          description={quest.description}
+                          status={quest.status}
+                          imagePath={quest.imagePath}
+                          progress={quest.progress}
+                          rewards={quest.rewards}
+                        />
+                      )),
+                    )
+                  : null}
+              </div>
+            </main>
+          ) : (
+            <main className="quest-no-quest">NO QUESTS</main>
+          )}
         </div>
+      </div>
     </section>
   )
 }

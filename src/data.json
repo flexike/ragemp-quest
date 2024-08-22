@@ -1,129 +1,135 @@
 [
   {
-      "name": "Starting",
-      "quests": [
-        {
-          "name": "The Lost Artifact",
-          "description": "Find the ancient artifact hidden in the old temple.",
-          "status": "current",
-          "imagePath": "",
-          "progress": {
-            "current": 0,
-            "total": 3000
-          },
-          "rewards": {
-            "exp": 500,
-            "money": 200,
-            "items": [
-              {
-                "imagePath": "",
-                "rarity": "purple"
-              }
-            ]
-          }
-        },{
-          "name": "The Lost Artifact",
-          "description": "Find the ancient artifact hidden in the old temple.",
-          "status": "current",
-          "imagePath": "",
-          "progress": {
-            "current": 0,
-            "total": 3000
-          },
-          "rewards": {
-            "exp": 500,
-            "money": 200,
-            "items": [
-              {
-                "imagePath": "",
-                "rarity": "purple"
-              }
-            ]
-          }
-        },{
-          "name": "The Lost Artifact",
-          "description": "Find the ancient artifact hidden in the old temple.",
-          "status": "current",
-          "imagePath": "",
-          "progress": {
-            "current": 0,
-            "total": 3000
-          },
-          "rewards": {
-            "exp": 500,
-            "money": 200,
-            "items": [
-              {
-                "imagePath": "",
-                "rarity": "purple"
-              }
-            ]
-          }
+    "name": "Starting",
+    "quests": [
+      {
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "current",
+        "imagePath": "",
+        "progress": {
+          "current": 0,
+          "total": 3000
+        },
+        "rewards": {
+          "exp": 500,
+          "money": 200,
+          "items": [
+            {
+              "imagePath": "",
+              "rarity": "purple"
+            }
+          ]
         }
-      ]
-  },{
-      "name": "Every Day",
-      "quests": [
-  {
-  "name": "The Lost Artifact",
-  "description": "Find the ancient artifact hidden in the old temple.",
-  "status": "current",
-  "imagePath": "",
-  "progress": {
-  "current": 3,
-  "total": 5
+      },
+      {
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "current",
+        "imagePath": "",
+        "progress": {
+          "current": 0,
+          "total": 3000
+        },
+        "rewards": {
+          "exp": 500,
+          "money": 200,
+          "items": [
+            {
+              "imagePath": "",
+              "rarity": "purple"
+            }
+          ]
+        }
+      },
+      {
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "current",
+        "imagePath": "",
+        "progress": {
+          "current": 0,
+          "total": 3000
+        },
+        "rewards": {
+          "exp": 500,
+          "money": 200,
+          "items": [
+            {
+              "imagePath": "",
+              "rarity": "purple"
+            }
+          ]
+        }
+      }
+    ]
   },
-  "rewards": {
-  "exp": 500,
-  "money": 200,
-  "items": [
   {
-  "imagePath": "",
-  "rarity": "purple"
-  }
-  ]
-  }
-  },{
-  "name": "The Lost Artifact",
-  "description": "Find the ancient artifact hidden in the old temple.",
-  "status": "current",
-  "imagePath": "",
-  "progress": {
-  "current": 3,
-  "total": 5
+    "name": "Every Day",
+    "quests": [
+      {
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "current",
+        "imagePath": "",
+        "progress": {
+          "current": 3,
+          "total": 5
+        },
+        "rewards": {
+          "exp": 500,
+          "money": 200,
+          "items": [
+            {
+              "imagePath": "",
+              "rarity": "purple"
+            }
+          ]
+        }
+      },
+      {
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "current",
+        "imagePath": "",
+        "progress": {
+          "current": 3,
+          "total": 5
+        },
+        "rewards": {
+          "exp": 500,
+          "money": 200,
+          "items": [
+            {
+              "imagePath": "",
+              "rarity": "purple"
+            }
+          ]
+        }
+      },
+      {
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "current",
+        "imagePath": "",
+        "progress": {
+          "current": 3,
+          "total": 5
+        },
+        "rewards": {
+          "exp": 500,
+          "money": 200,
+          "items": [
+            {
+              "imagePath": "",
+              "rarity": "purple"
+            }
+          ]
+        }
+      }
+    ]
   },
-  "rewards": {
-  "exp": 500,
-  "money": 200,
-  "items": [
   {
-  "imagePath": "",
-  "rarity": "purple"
-  }
-  ]
-  }
-  },{
-  "name": "The Lost Artifact",
-  "description": "Find the ancient artifact hidden in the old temple.",
-  "status": "current",
-  "imagePath": "",
-  "progress": {
-  "current": 3,
-  "total": 5
-  },
-  "rewards": {
-  "exp": 500,
-  "money": 200,
-  "items": [
-  {
-  "imagePath": "",
-  "rarity": "purple"
-  }
-  ]
-  }
-  }
-  ]
-  },{
     "name": "Weekly",
     "quests": [
       {
@@ -145,7 +151,8 @@
             }
           ]
         }
-      },{
+      },
+      {
         "name": "The Lost Artifact",
         "description": "Find the ancient artifact hidden in the old temple.",
         "status": "current",
@@ -164,7 +171,8 @@
             }
           ]
         }
-      },{
+      },
+      {
         "name": "The Lost Artifact",
         "description": "Find the ancient artifact hidden in the old temple.",
         "status": "done",
@@ -185,130 +193,135 @@
         }
       }
     ]
-  },{
+  },
+  {
     "name": "Family",
     "quests": [
-    {
-      "name": "The Lost Artifact",
-      "description": "Find the ancient artifact hidden in the old temple.",
-      "status": "current",
-      "imagePath": "",
-      "progress": {
-        "current": 3,
-        "total": 5
+      {
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "current",
+        "imagePath": "",
+        "progress": {
+          "current": 3,
+          "total": 5
+        },
+        "rewards": {
+          "exp": 500,
+          "money": 200,
+          "items": [
+            {
+              "imagePath": "",
+              "rarity": "purple"
+            }
+          ]
+        }
       },
-      "rewards": {
-        "exp": 500,
-        "money": 200,
-        "items": [
-          {
-            "imagePath": "",
-            "rarity": "purple"
-          }
-        ]
-      }
-    },{
-      "name": "The Lost Artifact",
-      "description": "Find the ancient artifact hidden in the old temple.",
-      "status": "current",
-      "imagePath": "",
-      "progress": {
-        "current": 3,
-        "total": 5
+      {
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "current",
+        "imagePath": "",
+        "progress": {
+          "current": 3,
+          "total": 5
+        },
+        "rewards": {
+          "exp": 500,
+          "money": 200,
+          "items": [
+            {
+              "imagePath": "",
+              "rarity": "purple"
+            }
+          ]
+        }
       },
-      "rewards": {
-        "exp": 500,
-        "money": 200,
-        "items": [
-          {
-            "imagePath": "",
-            "rarity": "purple"
-          }
-        ]
+      {
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "current",
+        "imagePath": "",
+        "progress": {
+          "current": 3,
+          "total": 5
+        },
+        "rewards": {
+          "exp": 500,
+          "money": 200,
+          "items": [
+            {
+              "imagePath": "",
+              "rarity": "purple"
+            }
+          ]
+        }
       }
-    },{
-      "name": "The Lost Artifact",
-      "description": "Find the ancient artifact hidden in the old temple.",
-      "status": "current",
-      "imagePath": "",
-      "progress": {
-        "current": 3,
-        "total": 5
+    ]
+  },
+  {
+    "name": "Fraction",
+    "quests": [
+      {
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "current",
+        "imagePath": "",
+        "progress": {
+          "current": 3,
+          "total": 5
+        },
+        "rewards": {
+          "exp": 500,
+          "money": 200,
+          "items": [
+            {
+              "imagePath": "",
+              "rarity": "purple"
+            }
+          ]
+        }
       },
-      "rewards": {
-        "exp": 500,
-        "money": 200,
-        "items": [
-          {
-            "imagePath": "",
-            "rarity": "purple"
-          }
-        ]
-      }
-    }
-  ]
-  },{
-  "name": "Fraction",
-  "quests": [
-    {
-      "name": "The Lost Artifact",
-      "description": "Find the ancient artifact hidden in the old temple.",
-      "status": "current",
-      "imagePath": "",
-      "progress": {
-        "current": 3,
-        "total": 5
+      {
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "current",
+        "imagePath": "",
+        "progress": {
+          "current": 3,
+          "total": 5
+        },
+        "rewards": {
+          "exp": 500,
+          "money": 200,
+          "items": [
+            {
+              "imagePath": "",
+              "rarity": "purple"
+            }
+          ]
+        }
       },
-      "rewards": {
-        "exp": 500,
-        "money": 200,
-        "items": [
-          {
-            "imagePath": "",
-            "rarity": "purple"
-          }
-        ]
+      {
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "current",
+        "imagePath": "",
+        "progress": {
+          "current": 3,
+          "total": 5
+        },
+        "rewards": {
+          "exp": 500,
+          "money": 200,
+          "items": [
+            {
+              "imagePath": "",
+              "rarity": "purple"
+            }
+          ]
+        }
       }
-    },{
-      "name": "The Lost Artifact",
-      "description": "Find the ancient artifact hidden in the old temple.",
-      "status": "current",
-      "imagePath": "",
-      "progress": {
-        "current": 3,
-        "total": 5
-      },
-      "rewards": {
-        "exp": 500,
-        "money": 200,
-        "items": [
-          {
-            "imagePath": "",
-            "rarity": "purple"
-          }
-        ]
-      }
-    },{
-      "name": "The Lost Artifact",
-      "description": "Find the ancient artifact hidden in the old temple.",
-      "status": "current",
-      "imagePath": "",
-      "progress": {
-        "current": 3,
-        "total": 5
-      },
-      "rewards": {
-        "exp": 500,
-        "money": 200,
-        "items": [
-          {
-            "imagePath": "",
-            "rarity": "purple"
-          }
-        ]
-      }
-    }
-  ]
-}
+    ]
+  }
 ]
-
