@@ -35,7 +35,7 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
       font-weight: 400
 
       & h3
-        font-size: 16px
+        font-size: 15px
 
       & h4
         font-size: 14px
@@ -55,14 +55,14 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
 
     .quest-card-footer
       //background-color: blue
-      height: 42px
+      height: 43px
       display: flex
       align-items: center
       justify-content: space-between
       gap: 9px
 
       .btns-wrapper
-        width: 165px
+        min-width: 165px
         height: 40px
 
         .btn
@@ -70,6 +70,7 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
           height: 100%
           border-radius: 3px
           border: none
+
           background-color: #454545
           display: flex
           justify-content: center
@@ -96,8 +97,13 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
 
     .quest-rewards-wrapper
       display: flex
-      gap: 9px
+      gap: 0
       height: 100%
+      width: 100%
+      //background-color: blue
+
+      &.gapQ
+        gap: 9px
 
       // EXP & MONEY
       .first-rewards-wrapper
@@ -109,8 +115,10 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
         justify-content: flex-end
         align-items: flex-end
         gap: 3px
+
         font-family: 'Gilroy-Regular', sans-serif
         font-size: 13px
+        //background-color: red
 
         .first-rewards-EXP
           height: 19px
@@ -123,7 +131,6 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
 
         .first-rewards-MON
           height: 19px
-          width: 100%
           background: #97D90B26
           display: flex
           align-items: center
@@ -134,11 +141,11 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
 
       // ITEMS
       .second-rewards-wrapper
-        width: 100%
         height: 100%
 
         display: flex
         flex-flow: row nowrap
+        justify-content: flex-end
         gap: 9px
 
         .second-rewards-item

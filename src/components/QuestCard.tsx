@@ -1,6 +1,7 @@
 import './questcard.sass'
 import bagIcon from "../assets/bagIcon.png";
 import questBgCup from "../assets/quest-bg-cup.svg";
+import {createLogger} from "vite";
 
 interface QuestCardProps {
     name: string;
@@ -11,7 +12,7 @@ interface QuestCardProps {
         current: number;
         total: number;
     };
-    rewards: Rewards[]
+    rewards: Rewards
 }
 
 type Rewards = {
@@ -25,8 +26,18 @@ type Rewards = {
 
 function QuestCard({name, description, status, imagePath, progress, rewards}: QuestCardProps) {
 
-    console.log(`Quest Rewards: ${name}`)
+    function BeautyMon(mon: any) {
+        mon = mon.toString()
+        let formattedMon = ""
+        for (let i = mon.length - 1; i >= 0; i--) {
+            formattedMon = mon[i] + formattedMon
 
+            if ((mon.length - i) % 3 === 0 && i !== 0) {
+                formattedMon = "." + formattedMon
+            }
+        }
+        return formattedMon
+    }
 
     return (
         <div className="quest-wrapper">
@@ -63,7 +74,7 @@ function QuestCard({name, description, status, imagePath, progress, rewards}: Qu
                              : null
                     }
 
-                    <div className="quest-rewards-wrapper">
+                    <div className={`quest-rewards-wrapper ${status === "current" ? "" : "gapQ"}`}>
 
                         {
                             status === "disabled" ?
@@ -72,57 +83,43 @@ function QuestCard({name, description, status, imagePath, progress, rewards}: Qu
                             <>
                             {
                                 rewards ?
-                                    rewards.map((questRew) => {
-                                        return (
                                             <div className="first-rewards-wrapper">
-                                                <div className="first-rewards-EXP">+{questRew.exp} EXP</div>
-                                                <div className="first-rewards-MON">${questRew.money}</div>
+                                                <div className="first-rewards-EXP">+{rewards.exp} EXP</div>
+                                                <div className="first-rewards-MON">${BeautyMon(rewards.money)}</div>
                                             </div>
-                                        )
-                                    })
-                                    :
-                                    null
+                                    : null
                             }
 
-                                <div className="second-rewards-wrapper">
-                                    {
-                                        rewards ?
-
-                                            rewards.map((questRew) => {
-                                                return (
-                                                    <div className={`second-rewards-item ${questRew.items.map((c) => {return c.rarity})}`}>
-                                                        <img src={bagIcon} alt="itemIcon"
-                                                             className="rewards-item-picture"/>
-                                                        </div>
-                                                )
-                                            })
-
-                                            // <div className={`second-rewards-item `}>
-                                            //     <img src={bagIcon} alt="itemIcon" className="rewards-item-picture"/>
-                                            // </div>
-                                            : null
+                            <div className="second-rewards-wrapper">
+                            {
+                                 rewards.items ? (
+                                     rewards.items.sort((a, b) => {
+                                         const rarityOrder = {
+                                             "blue": 1,
+                                             "yellow": 2,
+                                             "purple": 3,
+                                             "red": 4
+                                         }
+                                         return rarityOrder[a.rarity] - rarityOrder[b.rarity]
+                                     }).map((item, index) => {
+                                     return (
+                                         <div key={index} className={`second-rewards-item ${item.rarity}`}>
+                                             <img src={bagIcon} alt="itemIcon" className="rewards-item-picture"/>
+                                         </div>
+                                     )
                                     }
-
-                                    {/*<div className={`second-rewards-item`}>*/}
-                                    {/*<img src={bagIcon} alt="itemIcon" className="rewards-item-picture"/>*/}
-                                    {/*</div>*/}
-                                    {/*<div className={`second-rewards-item ${"blue"}`}>*/}
-                                    {/*<img src={bagIcon} alt="itemIcon" className="rewards-item-picture"/>*/}
-                                    {/*</div>*/}
-                                    {/*<div className={`second-rewards-item ${"purple"}`}>*/}
-                                    {/*<img src={bagIcon} alt="itemIcon" className="rewards-item-picture"/>*/}
-                                    {/*</div>*/}
-
-
-                                </div>
+                                  )
+                                ): null
+                            }
+                            </div>
                             </>
                         }
-                        </div>
                     </div>
                 </div>
+            </div>
             <img src={questBgCup} alt="QuestCupBGicon" className="quest-background-icon"/>
         </div>
     );
 }
 
-                export default QuestCard;
+export default QuestCard;

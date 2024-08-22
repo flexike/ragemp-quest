@@ -2,13 +2,12 @@ import {Key, useEffect, useState} from 'react'
 import './App.sass'
 import QuestCardOption from "./components/QuestCardOption.tsx";
 import QuestCard from "./components/QuestCard.tsx";
+
 import everyDayQuestOptionON from './assets/everyDayQuestOptionON.svg'
 import everyDayQuestOptionOff from './assets/everyDayQuestOptionOff.svg'
 import startingQuestOptionON from './assets/startingQuestOptionON.svg'
 import startingQuestOptionOFF from './assets/startingQuestOptionOFF.svg'
 import DataFromServ from './data.json'
-import {createLogger} from "vite";
-
 
 interface DataInterf {
     name: string;
@@ -24,8 +23,8 @@ type QuestInterf = {
         current: number;
         total: number;
     };
-    rewards: Rewards[]
-}[]
+    rewards: Rewards
+}
 
 type Rewards = {
     exp?: number
@@ -39,7 +38,7 @@ type Rewards = {
 
 function App() {
 
-    const [data, setData] = useState<DataInterf | null>(null)
+    const [data, setData] = useState<DataInterf[] | null>(null)
     const bool: boolean = true
 
     useEffect(() => {
@@ -48,7 +47,6 @@ function App() {
 
     function fetchData() {
         setData(DataFromServ)
-        // console.log('Data is received', DataFromServ)
     }
 
 
@@ -65,7 +63,7 @@ function App() {
 
                                 {
                                     data ?
-                                        data.map((questOptionFrData: { name: string; }, index: Key | null | undefined) => {
+                                        data.map((questOptionFrData, index) => {
                                             return(
                                                 <QuestCardOption
                                                     key = {index}
@@ -87,11 +85,8 @@ function App() {
 
                                 {
                                     data ?
-                                        data.map((questsCardFrData: DataInterf) => {
-                                            // console.log('QUESTcardDATA', questsCardFrData.quests)
-                                            questsCardFrData.quests.forEach((quest: any, index: Key | null | undefined) => {
-                                                // console.log("QUEST (FOREACH):", quest)
-                                                return(
+                                        data.map((questsCardFrData) =>
+                                           questsCardFrData.quests.map((quest, index) => (
                                                     <QuestCard
                                                         key = {index}
                                                         name = {quest.name}
@@ -102,8 +97,8 @@ function App() {
                                                         rewards = {quest.rewards}
                                                     />
                                                 )
-                                            })
-                                        })
+                                           )
+                                        )
                                         :
                                         null
                                 }
