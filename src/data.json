@@ -1,19 +1,34 @@
 [
   {
-    "name": "Main Quests",
+    "name": "Starting Quests",
     "quests": [
       {
-        "name": "The Lost Artifact",
-        "description": "Find the ancient artifact hidden in the old temple.",
+        "name": "Назва квесту",
+        "description": "Розколоти 3 палети патиків на бригаді ",
         "status": "current",
         "imagePath": "",
         "progress": {
-          "current": 3,
-          "total": 5
+          "current": 0,
+          "total": 3000
+        },
+        "rewards": {
+          "exp": 1250,
+          "money": 5000000000,
+          "items": [
+          ]
+        }
+      },{
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "available",
+        "imagePath": "",
+        "progress": {
+          "current": 0,
+          "total": 3000
         },
         "rewards": {
           "exp": 500,
-          "money": 200,
+          "money": 2000,
           "items": [
             {
               "imagePath": "",
@@ -21,23 +36,51 @@
             }
           ]
         }
-      },
-      {
-        "name": "The Final Battle",
-        "description": "Defeat the Dark Lord and bring peace to the kingdom.",
-        "status": "available",
+      },{
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "disabled",
         "imagePath": "",
         "progress": {
           "current": 0,
-          "total": 1
+          "total": 3000
         },
         "rewards": {
-          "exp": 1000,
-          "money": 500,
+          "exp": 500,
+          "money": 2000,
+          "items": [
+            {
+              "imagePath": "",
+              "rarity": "purple"
+            }
+          ]
+        }
+      },{
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "done",
+        "imagePath": "",
+        "progress": {
+          "current": 0,
+          "total": 3000
+        },
+        "rewards": {
+          "exp": 1250,
+          "money": 98000000,
           "items": [
             {
               "imagePath": "",
               "rarity": "red"
+            },{
+              "imagePath": "",
+              "rarity": "purple"
+            },{
+              "imagePath": "",
+              "rarity": "yellow"
+            },
+            {
+              "imagePath": "",
+              "rarity": "blue"
             }
           ]
         }
@@ -45,39 +88,105 @@
     ]
   },
   {
-    "name": "Side Quests",
+    "name": "Everyday Quests",
     "quests": [
       {
-        "name": "The Missing Merchant",
-        "description": "Help the merchant find his lost goods in the forest.",
+        "name": "Назва квесту",
+        "description": "Розколоти 3 палети патиків на бригаді ",
         "status": "done",
         "imagePath": "",
         "progress": {
-          "current": 1,
-          "total": 1
+          "current": 0,
+          "total": 3000
         },
         "rewards": {
-          "money": 50,
+          "exp": 1250,
+          "money": 5000000000,
           "items": [
-            {
-              "imagePath": "",
-              "rarity": "yellow"
-            }
           ]
         }
-      },
+      }
+    ]
+  },
+  {
+    "name": "Weekly Quests",
+    "quests": [
       {
-        "name": "Herbalist's Request",
-        "description": "Collect 10 rare herbs for the village herbalist.",
+        "name": "Назва квесту",
+        "description": "Розколоти 3 палети патиків на бригаді ",
+        "status": "available",
+        "imagePath": "",
+        "progress": {
+          "current": 0,
+          "total": 3000
+        },
+        "rewards": {
+          "exp": 1250,
+          "money": 5000000000,
+          "items": [
+          ]
+        }
+      },{
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
         "status": "disabled",
         "imagePath": "",
         "progress": {
           "current": 0,
-          "total": 10
+          "total": 3000
         },
         "rewards": {
-          "exp": 100,
+          "exp": 500,
+          "money": 2000,
           "items": [
+            {
+              "imagePath": "",
+              "rarity": "purple"
+            }
+          ]
+        }
+      },{
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "disabled",
+        "imagePath": "",
+        "progress": {
+          "current": 0,
+          "total": 3000
+        },
+        "rewards": {
+          "exp": 500,
+          "money": 2000,
+          "items": [
+            {
+              "imagePath": "",
+              "rarity": "purple"
+            }
+          ]
+        }
+      },{
+        "name": "The Lost Artifact",
+        "description": "Find the ancient artifact hidden in the old temple.",
+        "status": "disabled",
+        "imagePath": "",
+        "progress": {
+          "current": 0,
+          "total": 3000
+        },
+        "rewards": {
+          "exp": 1250,
+          "money": 98000000,
+          "items": [
+            {
+              "imagePath": "",
+              "rarity": "red"
+            },{
+              "imagePath": "",
+              "rarity": "purple"
+            },{
+              "imagePath": "",
+              "rarity": "yellow"
+            },
             {
               "imagePath": "",
               "rarity": "blue"
