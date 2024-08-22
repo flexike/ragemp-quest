@@ -39,7 +39,6 @@ type Rewards = {
 function App() {
 
     const [data, setData] = useState<DataInterf[] | null>(null)
-    const bool: boolean = true
     const [currentOption, setCurrentOptions] = useState(0)
 
     useEffect(() => {
@@ -63,16 +62,15 @@ function App() {
                 <div className="quest-block">
                     <aside className="quest-block-aside">Aside None</aside>
                     {
-                        bool ?
+                        data ?
                             <main className="quest-block-main">
                                 <header className="quest-main-header">
 
                                 {
-                                    data ?
-                                        data.map((questOptionFrData, index) => {
+                                        data?.map((questOptionFrData, index) => {
                                             return(
                                                 <QuestCardOption
-                                                    key = {index}
+                                                    key = {questOptionFrData.name}
                                                     questOptionName = {questOptionFrData.name}
                                                     questOptionSVGoff = {`${startingQuestOptionOFF}`}
                                                     questOptionSVGon = {`${startingQuestOptionON}`}
@@ -81,8 +79,6 @@ function App() {
                                                 />
                                             )
                                         })
-                                    :
-                                    null
                                 }
 
 
@@ -92,12 +88,11 @@ function App() {
                             <div className="quest-desk">
 
                                 {
-                                    data ?
-                                        data.map((questsCardFrData, index) => {
+                                        data?.map((questsCardFrData, index) => {
                                            if(currentOption === index) {
-                                               return questsCardFrData.quests.map((quest, index) => (
+                                               return questsCardFrData.quests.map((quest) => (
                                                        <QuestCard
-                                                           key={index}
+                                                           key={quest.name}
                                                            name={quest.name}
                                                            description={quest.description}
                                                            status={quest.status}
@@ -109,8 +104,6 @@ function App() {
                                                )
                                            }
                                         })
-                                        :
-                                        null
                                 }
 
                             </div>
