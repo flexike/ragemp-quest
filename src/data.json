@@ -18,7 +18,7 @@
           ]
         }
       },{
-        "name": "The Lost Artifact",
+        "name": "123",
         "description": "Find the ancient artifact hidden in the old temple.",
         "status": "available",
         "imagePath": "",
@@ -37,7 +37,7 @@
           ]
         }
       },{
-        "name": "The Lost Artifact",
+        "name": "234",
         "description": "Find the ancient artifact hidden in the old temple.",
         "status": "disabled",
         "imagePath": "",
@@ -56,7 +56,7 @@
           ]
         }
       },{
-        "name": "The Lost Artifact",
+        "name": "345",
         "description": "Find the ancient artifact hidden in the old temple.",
         "status": "done",
         "imagePath": "",
@@ -91,7 +91,7 @@
     "name": "Everyday Quests",
     "quests": [
       {
-        "name": "Назва квесту",
+        "name": "SSSS",
         "description": "Розколоти 3 палети патиків на бригаді ",
         "status": "done",
         "imagePath": "",
@@ -127,7 +127,7 @@
           ]
         }
       },{
-        "name": "The Lost Artifact",
+        "name": "QWE",
         "description": "Find the ancient artifact hidden in the old temple.",
         "status": "disabled",
         "imagePath": "",
@@ -146,7 +146,7 @@
           ]
         }
       },{
-        "name": "The Lost Artifact",
+        "name": "WWW",
         "description": "Find the ancient artifact hidden in the old temple.",
         "status": "disabled",
         "imagePath": "",
@@ -165,7 +165,7 @@
           ]
         }
       },{
-        "name": "The Lost Artifact",
+        "name": "EEE",
         "description": "Find the ancient artifact hidden in the old temple.",
         "status": "disabled",
         "imagePath": "",
