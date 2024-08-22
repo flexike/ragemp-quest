@@ -1,21 +1,27 @@
 import './questcardoption.sass'
 
-interface questCardInterface{
-    questOptionName: string
-    questOptionSVGoff: string
-    questOptionSVGon: string
+interface questCardInterface {
+    questOptionName: string,
+    questOptionSVGoff: string,
+    questOptionSVGon: string,
+    selected: boolean,
+    onClick: () => void;  // Add this line to the interface
 }
 
 
-function QuestCardOption({questOptionName, questOptionSVGoff, questOptionSVGon}: questCardInterface) {
-
-    const isActive: boolean = false
+function QuestCardOption({
+                             questOptionName,
+                             questOptionSVGoff,
+                             questOptionSVGon,
+                             selected,
+                             onClick,
+                         }: questCardInterface) {
 
     return (
-        <div className="quest-main-header-quest-option">
+        <div className={`quest-main-header-quest-option ${selected ? "selected" : ''}`}>
             <div className="quest-option-title-wrapper">
 
-                <img src={isActive ?`${questOptionSVGon}` : `${questOptionSVGoff}`} alt="SVGIcon"/>
+                <img src={selected ? `${questOptionSVGon}` : `${questOptionSVGoff}`} alt="SVGIcon"/>
 
                 {questOptionName}
             </div>

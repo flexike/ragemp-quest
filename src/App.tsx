@@ -1,4 +1,4 @@
-import {Key, useEffect, useState} from 'react'
+import {Key, SetStateAction, useEffect, useState} from 'react'
 import './App.sass'
 import QuestCardOption from "./components/QuestCardOption.tsx";
 import QuestCard from "./components/QuestCard.tsx";
@@ -40,6 +40,7 @@ function App() {
 
     const [data, setData] = useState<DataInterf[] | null>(null)
     const bool: boolean = true
+    const [currentOption, setCurrentOptions] = useState(0)
 
     useEffect(() => {
         fetchData()
@@ -47,6 +48,11 @@ function App() {
 
     function fetchData() {
         setData(DataFromServ)
+    }
+
+    function optionHandler(inx: number){
+        setCurrentOptions(inx)
+        console.log("currentOption",currentOption, "CARDINDEX", inx)
     }
 
 
@@ -70,6 +76,8 @@ function App() {
                                                     questOptionName = {questOptionFrData.name}
                                                     questOptionSVGoff = {`${startingQuestOptionOFF}`}
                                                     questOptionSVGon = {`${startingQuestOptionON}`}
+                                                    selected = {currentOption === index}
+                                                    onClick={() => optionHandler(index)}
                                                 />
                                             )
                                         })
