@@ -1,10 +1,8 @@
+import style from './App.module.sass'
 import {Key, SetStateAction, useEffect, useState} from 'react'
-import './App.sass'
 import QuestCardOption from "./components/QuestCardOption.tsx";
 import QuestCard from "./components/QuestCard.tsx";
 
-import everyDayQuestOptionON from './assets/everyDayQuestOptionON.svg'
-import everyDayQuestOptionOff from './assets/everyDayQuestOptionOff.svg'
 import startingQuestOptionON from './assets/startingQuestOptionON.svg'
 import startingQuestOptionOFF from './assets/startingQuestOptionOFF.svg'
 import DataFromServ from './data.json'
@@ -51,20 +49,19 @@ function App() {
 
     function optionHandler(inx: number){
         setCurrentOptions(inx)
-        console.log("currentOption",currentOption, "CARDINDEX", inx)
     }
 
 
     return (
-        <section className="quest-section">
-            <div className="quest-container">
-                <header className="quest-header">Menu None</header>
-                <div className="quest-block">
-                    <aside className="quest-block-aside">Aside None</aside>
+        <section className={style.questSection}>
+            <div className={style.questContainer}>
+                <header className={style.questHeader}>Menu None</header>
+                <div className={style.questBlock}>
+                    <aside className={style.questBlockAside}>Aside None</aside>
                     {
                         data ?
-                            <main className="quest-block-main">
-                                <header className="quest-main-header">
+                            <main className={style.questBlockMain}>
+                                <header className={style.questMainHeader}>
 
                                 {
                                         data?.map((questOptionFrData, index) => {
@@ -85,7 +82,7 @@ function App() {
 
                             </header>
 
-                            <div className="quest-desk">
+                            <div className={style.questDesk}>
 
                                 {
                                         data?.map((questsCardFrData, index) => {
@@ -110,7 +107,7 @@ function App() {
 
                         </main>
                         :
-                        <main className="quest-no-quest">NO QUESTS</main>
+                        <main className={style.questNoQuest}>NO QUESTS</main>
                 }
             </div>
         </div>

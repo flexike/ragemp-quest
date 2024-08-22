@@ -4,7 +4,7 @@ $default-bg-no-context: #333333
 $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%)
 
 
-.quest-wrapper
+.questWrapper
   height: 150px
   width: 510px
   background: $quest-bg-default
@@ -13,20 +13,20 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
   color: white
   position: relative
 
-  .quest-background-icon
+  .questBackgroundIcon
     position: absolute
     right: -1px
     top: -1px
     pointer-events: none
 
-  .quest-card-container
+  .questCardContainer
     height: 100%
     width: 100%
     padding: 15px
     display: flex
     flex-direction: column
 
-    .quest-card-header
+    .questCardHeader
       height: 20px
       width: 100%
       display: flex
@@ -43,7 +43,7 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
         & span
           color: #FFFFFF59
 
-    .quest-card-main
+    .questCardMain
       margin-top: 4px
       width: 100%
       height: 100%
@@ -53,7 +53,7 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
         color: #FFFFFF8C
         font-family: 'Gilroy-Regular', sans-serif
 
-    .quest-card-footer
+    .questCardFooter
       //background-color: blue
       height: 43px
       display: flex
@@ -61,7 +61,7 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
       justify-content: space-between
       gap: 9px
 
-      .btns-wrapper
+      .btnsWrapper
         min-width: 165px
         height: 40px
 
@@ -79,23 +79,23 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
           color: white
           font-family: 'Gilroy-Regular', sans-serif
 
-        .quest-available
+        .questAvailable
           color: yellow
           background: #635f35
           border: 1px solid #b4ac3c
 
-        .quest-done
+        .questDone
           color: #5dfd43
           background: #5DFF4340
 
-        .quest-disabled
+        .questDisabled
           color: white
           background: #636364
           border: 1px solid #999999
 
 
 
-    .quest-rewards-wrapper
+    .questRewardsWrapper
       display: flex
       gap: 0
       height: 100%
@@ -106,7 +106,7 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
         gap: 9px
 
       // EXP & MONEY
-      .first-rewards-wrapper
+      .firstRewardsWrapper
         width: 100%
         height: 100%
 
@@ -120,7 +120,7 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
         font-size: 13px
         //background-color: red
 
-        .first-rewards-EXP
+        .firstRewardsEXP
           height: 19px
           background-color: #11E9FF26
           display: flex
@@ -129,7 +129,7 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
           border-radius: 3px
           padding: 0 11px 0 11px
 
-        .first-rewards-MON
+        .firstRewardsMON
           height: 19px
           background: #97D90B26
           display: flex
@@ -140,7 +140,7 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
 
 
       // ITEMS
-      .second-rewards-wrapper
+      .secondRewardsWrapper
         height: 100%
 
         display: flex
@@ -148,7 +148,7 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
         justify-content: flex-end
         gap: 9px
 
-        .second-rewards-item
+        .secondRewardsItem
           background: radial-gradient(100% 100% at 50% 50%, rgba(221, 221, 221, 0.5) 0%, rgba(221, 221, 221, 0.250496) 49.9%, rgba(221, 221, 221, 0) 100%)
           border: 1px solid #DDDDDD40
           border-radius: 3px
@@ -178,6 +178,6 @@ $quest-bg-default: radial-gradient(97.5% 97.5% at 50% 50%, rgba(255, 255, 255, 0
           background: radial-gradient(100% 100% at 50% 50%, rgba(246, 104, 104, 0.5) 0%, rgba(246, 104, 104, 0.25) 49.9%, rgba(246, 104, 104, 0) 100%)
           border: 1px solid rgba(246, 104, 104, 0.25)
 
-        .rewards-item-picture
+        .rewardsItemPicture
           width: 25px
           height: 25px

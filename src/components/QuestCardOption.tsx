@@ -1,4 +1,4 @@
-import './questcardoption.sass'
+import style from './questcardoption.module.sass'
 
 interface questCardInterface {
     questOptionName: string,
@@ -18,8 +18,8 @@ function QuestCardOption({
                          }: questCardInterface) {
 
     return (
-        <div className={`quest-main-header-quest-option ${selected ? "selected" : ''}`} onClick={onClick}>
-            <div className="quest-option-title-wrapper">
+        <div className={`${style.questMainHeaderQuestOption} ${selected ? style.selected : ""}`} onClick={onClick}>
+            <div className={style.questOptionTitleWrapper}>
 
                 <img src={selected ? `${questOptionSVGon}` : `${questOptionSVGoff}`} alt="SVGIcon"/>
 

@@ -1,4 +1,4 @@
-import './questcard.sass'
+import style from './questcard.module.sass'
 import bagIcon from "../assets/bagIcon.png";
 import questBgCup from "../assets/quest-bg-cup.svg";
 import {createLogger} from "vite";
@@ -40,41 +40,41 @@ function QuestCard({name, description, status, imagePath, progress, rewards}: Qu
     }
 
     return (
-        <div className="quest-wrapper">
-            <div className="quest-card-container">
-                <div className="quest-card-header">
+        <div className={style.questWrapper}>
+            <div className={style.questCardContainer}>
+                <div className={style.questCardHeader}>
                     <h3>{name}</h3>
                     <h4>{progress.current}<span>/{progress.total}</span></h4>
                 </div>
-                <div className="quest-card-main">
+                <div className={style.questCardMain}>
                     <p>{description}</p>
                 </div>
-                <div className="quest-card-footer">
+                <div className={style.questCardFooter}>
 
                     {
                         status === "available" ?
-                            <div className="btns-wrapper">
-                                <button className={`btn quest-available`}>Розпочати</button>
+                            <div className={style.btnsWrapper}>
+                                <button className={`${style.btn} ${style.questAvailable}`}>Розпочати</button>
                             </div>
 
                         : status === "done" ?
-                             <div className="btns-wrapper">
-                                <button className={`btn quest-done`}>Виконано</button>
+                             <div className={style.btnsWrapper}>
+                                <button className={`${style.btn} ${style.questDone}`}>Виконано</button>
                              </div>
 
                         : status === "current" ?
-                             <div className="btns-wrapper">
-                                 <button className={`btn`}>В процесі</button>
+                             <div className={style.btnsWrapper}>
+                                 <button className={`${style.btn}`}>В процесі</button>
                              </div>
 
                         : status === "disabled" ?
-                             <div className="btns-wrapper">
-                                  <button className={`btn quest-disabled`}>Недоступно</button>
+                             <div className={style.btnsWrapper}>
+                                  <button className={`${style.btn} ${style.questDisabled}`}>Недоступно</button>
                              </div>
                              : null
                     }
 
-                    <div className={`quest-rewards-wrapper ${status === "current" ? "" : "gapQ"}`}>
+                    <div className={`${style.questRewardsWrapper} ${status === "current" ? "" : `${style.gapQ}`}`}>
 
                         {
                             status === "disabled" ?
@@ -83,14 +83,14 @@ function QuestCard({name, description, status, imagePath, progress, rewards}: Qu
                             <>
                             {
                                 rewards ?
-                                            <div className="first-rewards-wrapper">
-                                                <div className="first-rewards-EXP">+{rewards.exp} EXP</div>
-                                                <div className="first-rewards-MON">${BeautyMon(rewards.money)}</div>
+                                            <div className={style.firstRewardsWrapper}>
+                                                <div className={style.firstRewardsEXP}>+{rewards.exp} EXP</div>
+                                                <div className={style.firstRewardsMON}>${BeautyMon(rewards.money)}</div>
                                             </div>
                                     : null
                             }
 
-                            <div className="second-rewards-wrapper">
+                            <div className={style.secondRewardsWrapper}>
                             {
                                  rewards.items ? (
                                      rewards.items.sort((a, b) => {
@@ -103,8 +103,8 @@ function QuestCard({name, description, status, imagePath, progress, rewards}: Qu
                                          return rarityOrder[a.rarity] - rarityOrder[b.rarity]
                                      }).map((item, index) => {
                                      return (
-                                         <div key={index} className={`second-rewards-item ${item.rarity}`}>
-                                             <img src={bagIcon} alt="itemIcon" className="rewards-item-picture"/>
+                                         <div key={index} className={`${style.secondRewardsItem} ${style[item.rarity]}`}>
+                                             <img src={bagIcon} alt="itemIcon" className={style.rewardsItemPicture}/>
                                          </div>
                                      )
                                     }
@@ -117,7 +117,7 @@ function QuestCard({name, description, status, imagePath, progress, rewards}: Qu
                     </div>
                 </div>
             </div>
-            <img src={questBgCup} alt="QuestCupBGicon" className="quest-background-icon"/>
+            <img src={questBgCup} alt="QuestCupBGicon" className={style.questBackgroundIcon}/>
         </div>
     );
 }
