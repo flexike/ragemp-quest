@@ -93,20 +93,22 @@ function App() {
 
                                 {
                                     data ?
-                                        data.map((questsCardFrData) =>
-                                           questsCardFrData.quests.map((quest, index) => (
-                                                    <QuestCard
-                                                        key = {index}
-                                                        name = {quest.name}
-                                                        description = {quest.description}
-                                                        status = {quest.status}
-                                                        imagePath = {quest.imagePath}
-                                                        progress = {quest.progress}
-                                                        rewards = {quest.rewards}
-                                                    />
-                                                )
-                                           )
-                                        )
+                                        data.map((questsCardFrData, index) => {
+                                           if(currentOption === index) {
+                                               return questsCardFrData.quests.map((quest, index) => (
+                                                       <QuestCard
+                                                           key={index}
+                                                           name={quest.name}
+                                                           description={quest.description}
+                                                           status={quest.status}
+                                                           imagePath={quest.imagePath}
+                                                           progress={quest.progress}
+                                                           rewards={quest.rewards}
+                                                       />
+                                                   )
+                                               )
+                                           }
+                                        })
                                         :
                                         null
                                 }

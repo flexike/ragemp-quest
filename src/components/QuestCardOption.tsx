@@ -18,7 +18,7 @@ function QuestCardOption({
                          }: questCardInterface) {
 
     return (
-        <div className={`quest-main-header-quest-option ${selected ? "selected" : ''}`}>
+        <div className={`quest-main-header-quest-option ${selected ? "selected" : ''}`} onClick={onClick}>
             <div className="quest-option-title-wrapper">
 
                 <img src={selected ? `${questOptionSVGon}` : `${questOptionSVGoff}`} alt="SVGIcon"/>
